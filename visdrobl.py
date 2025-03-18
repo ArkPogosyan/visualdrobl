@@ -3,6 +3,7 @@ import json
 import sqlite3
 import networkx as nx
 import plotly.graph_objects as go
+import matplotlib.colors as mcolors
 
 # Имя файла базы данных
 DB_FILE = "graph_data.db"
@@ -266,24 +267,29 @@ def visualize_with_plotly(G):
     """
     pos = nx.spring_layout(G, seed=42, k=0.5)
 
-    edge_x = []
-    edge_y = []
-    edge_labels = []
-    for edge in G.edges(data=True):
-        x0, y0 = pos[edge[0]]
-        x1, y1 = pos[edge[1]]
-        edge_x.extend([x0, x1, None])
-        edge_y.extend([y0, y1, None])
-        edge_labels.append(edge[2]["relation"])
+    # Генерация уникальных цветов для физических лиц
+    people = [node for node, attr in G.nodes(data=True) if attr.get("type") == "person"]
+    colors = list(mcolors.TABLEAU_COLORS.values())  # Используем стандартные цвета
+    color_map = {person: colors[i % len(colors)] for i, person in enumerate(people)}
 
-    edge_trace = go.Scatter(
-        x=edge_x, y=edge_y,
-        line=dict(width=1, color="gray"),
-        hoverinfo="text",
-        mode="lines",
-        text=edge_labels,
-        textposition="top center"
-    )
+    edge_traces = []
+    for edge in G.edges(data=True):
+        person, company, data = edge
+        relation_type = data["relation"]
+        x0, y0 = pos[person]
+        x1, y1 = pos[company]
+        edge_color = color_map[person]  # Цвет определяется по физическому лицу
+
+        edge_trace = go.Scatter(
+            x=[x0, x1, None],
+            y=[y0, y1, None],
+            line=dict(width=2, color=edge_color),
+            hoverinfo="text",
+            mode="lines",
+            text=f"{person} ({relation_type}) -> {company}",
+            textposition="top center"
+        )
+        edge_traces.append(edge_trace)
 
     node_x = []
     node_y = []
@@ -299,7 +305,7 @@ def visualize_with_plotly(G):
             node_color.append("lightblue")
             node_shape.append("square")
         else:
-            node_color.append("orange")
+            node_color.append(color_map[node])  # Цвет узла совпадает с цветом связей
             node_shape.append("circle")
 
     node_trace = go.Scatter(
@@ -318,7 +324,7 @@ def visualize_with_plotly(G):
     )
 
     fig = go.Figure(
-        data=[edge_trace, node_trace],
+        data=edge_traces + [node_trace],
         layout=go.Layout(
             title="Граф связей между юридическими и физическими лицами",
             showlegend=False,
