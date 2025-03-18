@@ -1,0 +1,196 @@
+{
+    "nodes": [
+        {
+            "id": "Гк Руда",
+            "type": "company"
+        },
+        {
+            "id": "Квиз Мозгобойня",
+            "type": "company"
+        },
+        {
+            "id": "Ип Лежнин АД",
+            "type": "company"
+        },
+        {
+            "id": "Ип Писчиков АЮ",
+            "type": "company"
+        },
+        {
+            "id": "Ип Гилязова АВ",
+            "type": "company"
+        },
+        {
+            "id": "Ип Нуриманов РГ",
+            "type": "company"
+        },
+        {
+            "id": "4групп",
+            "type": "company"
+        },
+        {
+            "id": "Барбершоп",
+            "type": "company"
+        },
+        {
+            "id": "Просекко",
+            "type": "company"
+        },
+        {
+            "id": "Черных ЕВ",
+            "type": "person"
+        },
+        {
+            "id": "Гилязов РМ",
+            "type": "person"
+        },
+        {
+            "id": "Лежнин АД",
+            "type": "person"
+        },
+        {
+            "id": "Писчиков АЮ",
+            "type": "person"
+        },
+        {
+            "id": "Гилязова АВ",
+            "type": "person"
+        },
+        {
+            "id": "Нуриманов РГ",
+            "type": "person"
+        },
+        {
+            "id": "Тисенко НА",
+            "type": "person"
+        },
+        {
+            "id": "Гилязова ГР",
+            "type": "person"
+        },
+        {
+            "id": "Швецов АЮ",
+            "type": "person"
+        },
+        {
+            "id": "Морозов РВ",
+            "type": "person"
+        },
+        {
+            "id": "Шалашов ИА",
+            "type": "person"
+        }
+    ],
+    "edges": [
+        {
+            "source": "Черных ЕВ",
+            "target": "ГК Руда",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Гилязов РМ",
+            "target": "Гк Руда",
+            "relation": "director"
+        },
+        {
+            "source": "Гилязов РМ",
+            "target": "Квиз Мозгобойня",
+            "relation": "director"
+        },
+        {
+            "source": "Гилязов РМ",
+            "target": "4групп",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Лежнин АД",
+            "target": "Квиз Мозгобойня",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Лежнин АД",
+            "target": "Ип лежнин АД",
+            "relation": "director"
+        },
+        {
+            "source": "Лежнин АД",
+            "target": "4групп",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Лежнин АД",
+            "target": "Барбершоп",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Писчиков АЮ",
+            "target": "Квиз Мозгобойня",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Писчиков АЮ",
+            "target": "Ип Писчиков АЮ",
+            "relation": "director"
+        },
+        {
+            "source": "Писчиков АЮ",
+            "target": "4групп",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Писчиков АЮ",
+            "target": "Барбершоп",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Гилязова АВ",
+            "target": "Ип Гилязова АВ",
+            "relation": "director"
+        },
+        {
+            "source": "Гилязова АВ",
+            "target": "4групп",
+            "relation": "director"
+        },
+        {
+            "source": "Нуриманов РГ",
+            "target": "Ип Нуриманов РГ",
+            "relation": "director"
+        },
+        {
+            "source": "Тисенко НА",
+            "target": "4групп",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Тисенко НА",
+            "target": "Барбершоп",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Тисенко НА",
+            "target": "Просекко",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Гилязова ГР",
+            "target": "Барбершоп",
+            "relation": "shareholder"
+        },
+        {
+            "source": "Швецов АЮ",
+            "target": "Барбершоп",
+            "relation": "director"
+        },
+        {
+            "source": "Морозов РВ",
+            "target": "Просекко",
+            "relation": "director"
+        },
+        {
+            "source": "Шалашов ИА",
+            "target": "Просекко",
+            "relation": "shareholder"
+        }
+    ]
+}
